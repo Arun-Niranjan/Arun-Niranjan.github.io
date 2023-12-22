@@ -7,7 +7,7 @@ categories: active inference
 
 ## Motivation
 
-This post is aimed at people who are interested in [Active Inference](https://en.wikipedia.org/wiki/Free_energy_principle) and are struggling to get their heads around it (which includes me!).
+This post is aimed at people who are interested in [Active Inference and the Free Energy Principle (FEP)](https://en.wikipedia.org/wiki/Free_energy_principle) and are struggling to get their heads around it (which includes me!).
 
 Active Inference is fascinating but can be really tough to understand. It's very easy to get bogged down in the maths, surprised by MATLAB code and overall get confused. One of the common barriers to entry I've seen (and felt myself!) is where to start in trying to set up a generative model. Lots of tensors start flying around, opaque equations and big words. Oof.
 
@@ -21,7 +21,7 @@ They are all based on the [pymdp](https://github.com/infer-actively/pymdp) libra
 
 This is the [first recipe](https://github.com/Arun-Niranjan/pymdp-cookbook/blob/main/examples/perception.py) for a generative model, demonstrating perception.
 
-To perform perception in Active Inference, we still need a generative model. To put it simply, we can't observe everything we care about. Sometimes we have to observe something else that we think (hope!) is _caused_ by the thing we care about. Then, when we observe the related thing, we *infer* what the thing we care about was.
+To perform perception with the FEP, we still need a generative model. To put it simply, we can't observe everything we care about. Sometimes we have to observe something else that we think (hope!) is _caused_ by the thing we care about. Then, when we observe the related thing, we *infer* what the thing we care about was.
 
 The classic example of this is a clinical diagnostic test, which is often used to explain Bayes theorem. There are plenty of explanations of this in textbooks, online etc. A brief summary here goes like this:
 - a person can either have a disease, or not
@@ -33,11 +33,13 @@ And the question we want to answer is:
 
 "If I test positive for the disease, what's the probability I am sick?"
 
-Now the thing to bear in mind here is that you don't *need* Active Inference to solve this problem. You can turn the handle on exact Bayesian inference to get a posterior probability that a person has a disease *given* the base rate of disease in the population (the prior) *and* whether they test positive (the data).
+Now the thing to bear in mind here is that we don't *need* the FEP to solve this problem. we can turn the handle on exact Bayesian inference to get a posterior probability that a person has a disease *given* the base rate of disease in the population (the prior) *and* whether they test positive (the data).
 
-But we can answer this question using Active Inference and the Free Energy Principle, by specifying one of the most simple generative models possible. Later on we can extend the model to solve trickier problems that we can't use exact inference for.
+But we can answer this question using the FEP, by specifying one of the most simple generative models possible. Later on we can extend the model to solve trickier problems that we can't use exact inference for.
 
 To see this model in detail in a runnable example with lots of comments explaining the setup, go to [perception.py](https://github.com/Arun-Niranjan/pymdp-cookbook/blob/main/examples/perception.py) in the cookbook repository.
+
+## Sign off
 
 As I add more examples, one of my aims is to make them more accessible - perhaps viewable in a browser with no code required. I'll see how it goes.
 
